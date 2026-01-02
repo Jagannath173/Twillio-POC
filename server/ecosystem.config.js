@@ -16,7 +16,7 @@ module.exports = {
             user: "ubuntu",
             host: "13.60.36.169",
             ref: "origin/main",
-            repo: "https://github.com/Jagannath173/twilliopoc",
+            repo: "https://github.com/Jagannath173/Twillio-POC.git",
             path: "/var/www/twilio-backend",
             "post-deploy":
                 "npm install && pm2 reload ecosystem.config.js --env production",
