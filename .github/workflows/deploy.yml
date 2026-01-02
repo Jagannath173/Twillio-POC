@@ -1,0 +1,27 @@
+name: Auto Deploy Twilio-POC
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H 13.60.63.251 >> ~/.ssh/known_hosts
+
+      - name: Deploy to EC2
+        run: |
+          ssh ubuntu@13.60.63.251 << 'EOF'
+            cd /home/ubuntu/apps/Twilio-POC/Twillio-POC/server
+            git pull origin main
+            npm install --production
+            pm2 reload Twilio-POC
+          EOF
