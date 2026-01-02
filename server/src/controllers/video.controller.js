@@ -8,6 +8,5 @@ exports.createToken = (req, res) => {
     }
 
     const token = generateVideoToken(identity, room);
-    console.log("Generated token:", token);
     res.json({ token });
 };
