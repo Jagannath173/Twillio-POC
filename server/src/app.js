@@ -10,7 +10,7 @@ app.use(express.json());
 app.use('/video', videoRoutes);
 
 app.get("/health", (_, res) => {
-    res.json({ status: "OK", service: "AI Live Assistant Backend alodvff" });
+    res.json({ status: "OK", service: "AI  Assistant Backend alodvff" });
 });
 
 module.exports = app;
