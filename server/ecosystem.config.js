@@ -1,6 +1,6 @@
 module.exports = {
     apps: [{
-        name: "ai-assitant",
+        name: "Twilio-POC",
         script: "src/server.js",
         instances: "max",
         exec_mode: "cluster",
